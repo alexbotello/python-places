@@ -1,9 +1,5 @@
 #!/usr/bin/env python
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+import setuptools
 
 with open('requirements.txt', 'r') as r:
     requirements = r.read().split()
@@ -14,9 +10,9 @@ with open('version.txt', 'r') as v:
 with open('README.md') as f:
     readme = f.read()
 
-setup(
+setuptools.setup(
     name='python-places',
-    packages=['googleplaces'],
+    packages=setuptools.find_packages(),
     description=('A set of classes used for interacting with the Google Places API'),
     long_description=readme,
     version=version,
